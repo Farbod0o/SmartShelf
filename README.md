@@ -8,7 +8,6 @@ SmartShelf is a computer vision-based project designed for real-time recognition
 - [Data Preparation](#data-preparation)
 - [Training](#training)
 - [Live Detection](#live-detection)
-- [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
 - [Future Improvements](#future-improvements)
 - [License](#license)
@@ -27,3 +26,38 @@ SmartShelf is a computer vision-based project designed for real-time recognition
 - Install the required packages:
 ```bash
 pip install -r requirements.txt
+```
+
+
+## Data Preparation
+Dataset: Create a folder named data and organize images into subfolders for each class/product (e.g., data/apple, data/banana, etc.).
+Augmentation (Optional): Data augmentation techniques such as rotation, flipping, and color adjustments can be applied to increase model robustness.
+
+## Training
+Feature Extraction: The code uses HOG, LBP, and color histograms to create feature vectors.
+Training Models:
+First, train the Multi-Layer Perceptron (MLP) using sklearn.neural_network.MLPClassifier.
+Use AdaBoost with the MLP predictions to improve accuracy in challenging scenarios.
+
+## Live Detection
+To start real-time detection, connect a camera and run:
+```bash
+python run.py
+```
+In live detection mode, a red box marks the area of interest in the center of the screen. Every two seconds, the frame inside this box is processed, and the top two detected products, along with their confidence scores, are displayed.
+
+## Technologies Used
+Python
+OpenCV for image processing
+Scikit-learn for machine learning models (MLP and AdaBoost)
+Numpy for data manipulation
+
+
+## Future Improvements
+Fine-tuning of Neural Network Architecture: Experiment with CNNs to improve feature extraction.
+Deployment Options: Implement options for deploying on edge devices or in-store servers.
+Additional Augmentation Techniques: Implementing synthetic data generation for rare products.
+
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
